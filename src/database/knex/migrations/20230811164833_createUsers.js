@@ -5,7 +5,7 @@ exports.up = knex => knex.schema.createTable("users", table => {
   table.text("password").notNullable();
 
   table
-    .enum("role", ["admin", "customer"], { useNative: true, enumName: "roles"}) // criar uma restrição de quais opções essa coluna vai ter
+    .enum("role", ["admin", "customer", "sale"], { useNative: true, enumName: "roles" }) // criar uma restrição de quais opções essa coluna vai ter
     .notNullable().default("customer")
 
   table.timestamp("created_at").default(knex.fn.now());
